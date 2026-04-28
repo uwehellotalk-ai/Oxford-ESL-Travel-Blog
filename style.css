@@ -69,9 +69,12 @@ main {
 }
 
 .tab-section {
-	background: white;
-	padding: 1.5rem;
-	margin-bottom: 1.5rem;
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: none; /* DAS HIER FEHLTE - damit sie am Anfang unsichtbar sind */
+    border-radius: 8px; /* Optional: macht es hübscher */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: gibt Tiefe */
 }
 
 /* CHAT */

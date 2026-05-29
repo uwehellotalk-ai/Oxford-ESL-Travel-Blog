@@ -54,12 +54,17 @@
             Speaking English fluently is the most important goal of teaching. This trip offers a great way to 
             learn English while experiencing English culture first-hand.
         </p>
-</div> <div id="media" class="intro-audio" style="border-top: 1px solid #ccc; padding-top: 15px;">
+</div> <div id="media" class="intro-audio" style="border-top: 1px solid #ccc; padding-top: 15px; text-align: center;">
         <p><strong>Listen to my personal welcome message:</strong></p>
-        <audio controls>
+        <audio controls style="margin-bottom: 20px;">
             <source src="welcome.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
+
+        <div style="margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 20px;">
+            <p style="font-size: 0.9em; color: #666;">Open this blog on your phone:</p>
+            <img src="QR-code Blog UWE-School.png" alt="QR Code" style="width: 120px; height: 120px; border: 1px solid #eee; padding: 5px; background: #fff;">
+        </div>
     </div>
 </section> <section id="permanent-comments" style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 10px; margin-bottom: 30px;">
     <h2>Guest Comments & Feedback</h2>
@@ -221,6 +226,60 @@
 
 </section>
 
+<article class="blog-entry" style="border-left: 4px solid #004a99; padding: 25px; background: #ffffff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 40px;">
+    <h3 style="color: #004a99; margin-top: 0;">04 The evening ends</h3>
+    
+    <div style="line-height: 1.8; color: #333; margin-bottom: 25px;">
+        <p>
+            You rise slightly from your chair to greet Tom, extending your hand with a firm shake. "Hello, Tom. I'm Udo, from Germany. It's great to meet you. I'm a civil engineer, and I've come to Oxford to brush up on my English. I reached B2 level years ago through videos and books, but now I want to make it fluent again for work and new adventures."
+        </p>
+        
+        <p>
+            Tom claps you on the shoulder, his beard twitching with a grin. "Excellent, Udo! A engineer with a global mindset—perfect for our class. We'll have you debating bridges in perfect idiom by week's end." He pulls up a chair beside Mrs. Davies, who refills his teacup with practiced grace.
+        </p>
+        
+        <p>
+            Maria leans forward, her enthusiasm undimmed. "That's wonderful, Udo. As for me, I'm Maria from Spain. I run a small tapas bar in Barcelona, but I need better English to expand online and attract tourists from everywhere. I've been practicing with podcasts and Netflix, but conversations still trip me up—like saying 'delicious' when I mean 'disgusting'!"
+        </p>
+        
+        <p>
+            Laughter ripples around the table, light and easy. Kenji, sipping his tea methodically, sets his cup down with a soft clink. "I am Kenji from Tokyo. I design video games, and English is essential for international teams. I study every day with apps and manga translations, but idioms confuse me. Why do you 'kick the bucket' to die? It sounds painful."
+        </p>
+        
+        <p>
+            Aaliyah chuckles, her voice carrying a melodic lilt. "Kenji, that's nothing. I'm Aaliyah from Riyadh, studying business to launch my own fashion line. My English comes from American movies and YouTube, but I struggle with phrasal verbs. 'Turn up'—does it mean arrive or increase volume? I want to negotiate with suppliers worldwide, so this course is my ticket."
+        </p>
+        
+        <p>
+            Mrs. Davies beams as she passes a plate of cucumber sandwiches. "Such inspiring stories! And Tom, you've heard mine before, but for Udo—I've hosted students for decades, practicing my listening while they butcher idioms."
+        </p>
+        
+        <p>
+            Tom nods, biting into a scone with relish. "Spot on. My own journey started in Asia, teaching rebels how to swear properly in English. Now, I live for moments like this—turning stumbles into strides."
+        </p>
+        
+        <p>
+            The conversation flows like the tea, warm and steaming, punctuated by shared mishaps: Maria's epic fail ordering "fish and chips" as "fishes and ships," Kenji's bafflement at "it's raining cats and dogs," Aaliyah's regal insistence that "queue" must be a royal command. You contribute a tale of once calling a "flat tire" a "pancake wheel," drawing fresh peals of laughter. The sun dips lower, casting golden hues across the polished wood, as plates empty and voices soften.
+        </p>
+        
+        <p>
+            Finally, Tom glances at the clock. "Right, folks, tomorrow's our first lesson at nine sharp. Dream in English tonight." Mrs. Davies begins clearing cups, her gentle voice bidding goodnights. One by one, the group rises, exchanging nods and smiles laced with that shared spark of anticipation. Kenji lingers a moment, adjusting his bag, while Maria waves from the doorway.
+        </p>
+
+        <!-- START DES AUDIO-PLAYERS IM VORHANDENEN STIL -->
+        <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border: 1px solid #eee;">
+            <p style="margin-top: 0; font-weight: bold; color: #555;">Listen to The evening ends:</p>
+            <audio controls style="width: 100%;">
+                <source src="audio4.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <!-- ENDE DES AUDIO-PLAYERS -->
+
+    </div>
+</article>
+
+
 <section id="worksheets" class="tab-section" style="display: block;"></section>
     <h2>Worksheets</h2>
     <p style="margin-bottom: 25px;">Download the worksheets for our lessons in Oxford and check your answers below:</p>
@@ -340,23 +399,6 @@
 
 </section> ```
 
-### Was wurde geändert?
-
-1.  **Sektions-Klammer:** Das `</section>`, das vorher direkt hinter `style="display: chat;"` stand, wurde entfernt.
-2.  **Display-Wert:** `display: chat;` wurde in `display: block;` korrigiert, damit das Element für das JavaScript "greifbar" ist.
-3.  **Hüllen-Prinzip:** Jetzt liegt der gesamte Chat-Inhalt (Überschrift, Text, Chat-Fenster) **innerhalb** der Sektion mit der `id="chat"`. Wenn du nun oben klickst, landet der Browser genau am Anfang dieses Blocks.
-
----
-
-### Feierabend-Check
-Wenn du das gespeichert hast, sollten nun alle deine Navigations-Ziele funktionieren:
-* **Blog** springt zum Blog.
-* **Worksheets** zu den PDFs.
-* **Media** zur Audio-Botschaft.
-* **Chat** zum Lehrer-Chat.
-* **Comments** zu den Gast-Kommentaren.
-
-Alles bereit für den Umzug nach **VS Code** morgen! Möchtest du, dass ich dir noch kurz die Links für die Erweiterungen notiere, die wir morgen brauchen?
 
         <div style="padding: 15px; border-top: 1px solid #ddd; display: flex; gap: 10px; background: #f9f9f9;">
             <input type="text" id="user-input" placeholder="Write a message..." style="flex-grow: 1; padding: 12px; border: 1px solid #ccc; border-radius: 25px; outline: none;">
@@ -366,23 +408,6 @@ Alles bereit für den Umzug nach **VS Code** morgen! Möchtest du, dass ich dir 
 
 </section> ```
 
-### Was wurde geändert?
-
-1.  **Sektions-Klammer:** Das `</section>`, das vorher direkt hinter `style="display: chat;"` stand, wurde entfernt.
-2.  **Display-Wert:** `display: chat;` wurde in `display: block;` korrigiert, damit das Element für das JavaScript "greifbar" ist.
-3.  **Hüllen-Prinzip:** Jetzt liegt der gesamte Chat-Inhalt (Überschrift, Text, Chat-Fenster) **innerhalb** der Sektion mit der `id="chat"`. Wenn du nun oben klickst, landet der Browser genau am Anfang dieses Blocks.
-
----
-
-### Feierabend-Check
-Wenn du das gespeichert hast, sollten nun alle deine Navigations-Ziele funktionieren:
-* **Blog** springt zum Blog.
-* **Worksheets** zu den PDFs.
-* **Media** zur Audio-Botschaft.
-* **Chat** zum Lehrer-Chat.
-* **Comments** zu den Gast-Kommentaren.
-
-Alles bereit für den Umzug nach **VS Code** morgen! Möchtest du, dass ich dir noch kurz die Links für die Erweiterungen notiere, die wir morgen brauchen?
 
     <script>
         const chatWindow = document.getElementById('chat-window');

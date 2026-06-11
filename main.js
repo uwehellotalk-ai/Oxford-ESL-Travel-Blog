@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetId) {
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
+                    // Scrollt weich zur richtigen Sektion, die jetzt den ganzen Inhalt umschließt
                     targetSection.scrollIntoView({ 
                         behavior: 'smooth', 
                         block: 'start' 
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 commentForm.reset();
                 loadComments(); // Lädt die Liste nach dem Senden neu
             })
-            .catch(error => console.error('Fehler:', error));
+            .catch(error => console.error('Fehler beim Senden des Kommentars:', error));
         });
     }
 
@@ -63,24 +64,81 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- KOMMENTARE LADEN FUNKTION ---
 function loadComments() {
     fetch(scriptURL)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Netzwerk-Antwort war nicht ok');
+            }
+            return response.json();
+        })
         .then(data => {
             const displayArea = document.getElementById('comments-display');
             if (!displayArea) return;
 
             displayArea.innerHTML = ''; 
 
-            data.forEach(row => {
-                const commentDiv = document.createElement('div');
-                commentDiv.className = 'comment-box';
-                commentDiv.style.marginBottom = "20px";
-                commentDiv.innerHTML = `
-                    <p><strong>${row[1]}</strong> <small>(${new Date(row[0]).toLocaleDateString()})</small></p>
-                    <p>${row[2]}</p>
-                    <hr>
-                `;
-                displayArea.appendChild(commentDiv);
-            });
+            // Prüfen, ob Daten vorhanden und ein Array sind
+            if (data && Array.isArray(data)) {
+                data.forEach(row => {
+                    const commentDiv = document.createElement('div');
+                    commentDiv.className = 'comment-box';
+                    commentDiv.style.marginBottom = "20px";
+                    commentDiv.innerHTML = `
+                        <p><strong>${row[1] || 'Anonymous'}</strong> <small>(${row[0] ? new Date(row[0]).toLocaleDateString() : ''})</small></p>
+                        <p>${row[2] || ''}</p>
+                        <hr>
+                    `;
+                    displayArea.appendChild(commentDiv);
+                });
+            }
         })
-        .catch(error => console.error('Fehler beim Laden:', error));
+        .catch(error => console.error('Fehler beim Laden der Kommentare:', error));
 }
+
+// --- INTERAKTIVES ARBEITSBLATT AUSWERTUNG (Alle 10 Aufgaben) ---
+function checkAnswers() {
+    let score = 0;
+    let totalQuestions = 10;
+    
+    // Alle richtigen Lösungen definieren (Kurzformen & Langformen erlaubt)
+    const solutions = {
+        q1: ["does"],
+        q2: ["did"],
+        q3: ["didn't", "did not"],
+        q4: ["does"],
+        q5: ["doesn't", "does not"],
+        q6: ["did"],
+        q7: ["didn't", "did not"],
+        q8: ["does"],
+        q9: ["did"],
+        q10: ["don't", "do not"]
+    };
+
+    // Schleife durch alle 10 Fragen
+    for (let i = 1; i <= totalQuestions; i++) {
+        let inputElement = document.getElementById('q' + i);
+        if (inputElement) {
+            let userAnswer = inputElement.value.trim().toLowerCase();
+            
+            // Prüfen, ob die Antwort in der Lösungsliste existiert
+            if (solutions['q' + i].includes(userAnswer)) {
+                score++;
+                inputElement.style.borderColor = "green"; // Visuelles Feedback für richtig
+            } else {
+                inputElement.style.borderColor = "red";   // Visuelles Feedback für falsch
+            }
+        }
+    }
+
+    // Gesamtergebnis anzeigen
+    let resultElement = document.getElementById('result-message');
+    if (resultElement) {
+        if (score === totalQuestions) {
+            resultElement.style.color = "green";
+            resultElement.innerText = `🎉 Perfect! ${score} out of ${totalQuestions} answers are correct. Excellent work!`;
+        } else {
+            resultElement.style.color = "#c0392b";
+            resultElement.innerText = `❌ You got ${score} out of ${totalQuestions} correct. Check the red boxes and try again!`;
+        }
+    }
+}
+
